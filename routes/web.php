@@ -26,22 +26,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('post/{post:slug}', [PostController::class, 'show']);
-
-//  make route for categories
-
-// Route::get('/categories/{categories:slug}', function (Category $categories) {
-
-//     return view('posts', [
-
-//         'posts' => $categories->posts,
-//         'currentCategory' => $categories,
-//         'categories' => Category::all()
-//     ]);
-// })->name('category');
-
-
 Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
+    return view('posts.index', [
         'posts' => $author->posts
     ]);
 });
