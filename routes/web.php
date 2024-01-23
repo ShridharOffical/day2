@@ -29,15 +29,15 @@ Route::get('post/{post:slug}', [PostController::class, 'show']);
 
 //  make route for categories
 
-Route::get('/categories/{categories:slug}', function (Category $categories) {
+// Route::get('/categories/{categories:slug}', function (Category $categories) {
 
-    return view('posts', [
+//     return view('posts', [
 
-        'posts' => $categories->posts,
-        'currentCategory' => $categories,
-        'categories' => Category::all()
-    ]);
-})->name('category');
+//         'posts' => $categories->posts,
+//         'currentCategory' => $categories,
+//         'categories' => Category::all()
+//     ]);
+// })->name('category');
 
 
 Route::get('/authors/{author:username}', function (User $author) {
