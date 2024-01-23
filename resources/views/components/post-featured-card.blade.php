@@ -12,20 +12,20 @@
             <header class="mt-8 lg:mt-0">
 
                 <div class="space-x-2">
-                    <a href="/?category/{{$post->category->slug}}"
+                    <a href="/?category={{ $post->category->slug }}"
                         class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                        style="font-size: 10px">{{$post->category->name}}</a>
+                        style="font-size: 10px">{{ $post->category->name }}</a>
                 </div>
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/post/{{$post->slug}}"> {{$post->title}}</a>
+                        <a href="/post/{{ $post->slug }}"> {{ $post->title }}</a>
 
 
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
-                        Published <time>{{$post->created_at->diffForHumans()}}</time>
+                        Published <time>{{ $post->created_at->diffForHumans() }}</time>
                     </span>
                 </div>
             </header>
@@ -42,13 +42,14 @@
                 <div class="flex items-center text-sm">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar" />
                     <div class="ml-3">
-                        <h5 class="font-bold"><a href="/authors/{{$post->author->name}}">{{$post->author->name}}</a></h5>
+                        <h5 class="font-bold"><a href="/?author={{ $post->author->username }}">
+                                {{ $post->author->name }} </a>
 
                     </div>
                 </div>
 
                 <div class="hidden lg:block">
-                    <a href="/post/{{$post->slug}}"
+                    <a href="/post/{{ $post->slug }}"
                         class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read
                         More</a>
                 </div>
