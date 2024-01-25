@@ -13,26 +13,6 @@ use MailchimpMarketing\ApiClient;
 
 
 
-// Route::post('newsletter',function()
-// {
-
-//     request()->validate(['email'=>'required|email']);
-//     $mailchimp = new ApiClient();
-
-//     $mailchimp->setConfig([
-//         'apiKey' => config('services.mailchimp.key'),
-//         'server' => 'us21'
-//     ]);
-    
-//     $response = $mailchimp->lists->addListMember('dad876a61f',[
-//         'email_address' => request('email'),
-//         'status'=>'subscribed',
-//     ]);
-   
-//     dd($response);
-    
-  
-// });
 
 
 

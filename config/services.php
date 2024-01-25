@@ -33,10 +33,6 @@ return [
 
     'mailchimp'=>[
             'key'=> env('MAILCHIMP_API_KEY'),
-            'lists'=>
-        [
-            'subscribers'=>env('MAILCHIMP_LIST_SUBSCRIBERS')
-        ]
-         ]
+            'lists'=>[ 'subscribers'=>env('MAILCHIMP_LIST_SUBSCRIBERS')]]
 
 ];
