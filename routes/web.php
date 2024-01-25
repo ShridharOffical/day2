@@ -6,10 +6,33 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Services\Newsletter;
+// use App\Services\Newsletter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
+use MailchimpMarketing\ApiClient;
 
+
+
+// Route::post('newsletter',function()
+// {
+
+//     request()->validate(['email'=>'required|email']);
+//     $mailchimp = new ApiClient();
+
+//     $mailchimp->setConfig([
+//         'apiKey' => config('services.mailchimp.key'),
+//         'server' => 'us21'
+//     ]);
+    
+//     $response = $mailchimp->lists->addListMember('dad876a61f',[
+//         'email_address' => request('email'),
+//         'status'=>'subscribed',
+//     ]);
+   
+//     dd($response);
+    
+  
+// });
 
 
 
