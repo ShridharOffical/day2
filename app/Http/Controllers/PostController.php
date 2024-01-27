@@ -36,22 +36,31 @@ class PostController extends Controller
     }
 
     public function store(){
-        ddd(request()->file('thumbnail'));
+
+       $path= request()->file('thumbnail')->store('thumbnails');
+
+
+
+       
         $data = request()->validate([
             'title' => 'required|max:255',
             'Excerpt' => 'required',
             'slug' => ['required', Rule::unique('posts', 'slug')],
+            'thumbnail' => 'required|image',
             'body' => 'required',
             'category' => ['required', Rule::exists('categories', 'id')],
         ]);
         
         $data['category_id'] = $data['category'];
         $data['user_id'] = auth()->id();
+        $data['thumbnail'] = $path ;
      
-        unset($data['category']); // Remove 'category' from $data as it's no longer needed
+        unset($data['category']); 
+        // Remove 'category' from $data as it's no longer needed
         Post::create($data);
 
-        return redirect()->route('home'); // Use the correct route name 'home'
+        return redirect()->route('home'); 
+        // Use the correct route name 'home'
     }
 }
 #MEZ-908031
