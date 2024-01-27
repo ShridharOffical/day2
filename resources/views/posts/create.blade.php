@@ -14,8 +14,7 @@
                         <x-forms.textarea name="excerpt"/>
                             <x-forms.textarea name="body"/>
                                 <x-forms.category />
-            <x-submit-button >Publish</x-submit-button>
-            
+            <x-submit-button >Publish</x-submit-button>   
         </form>
         </x-panel>
    
