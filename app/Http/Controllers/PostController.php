@@ -7,13 +7,15 @@ use App\Models\Post;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 class PostController extends Controller
 {
     public function index()
     {
-
+        // dd(Gate::allows('admin'));
         return view('posts.index', [
             'posts' => Post::latest()->filter(request(['search', 'category','author']))->paginate(6)->withQueryString()
             
@@ -30,38 +32,9 @@ class PostController extends Controller
         ]);
     }
 
-    public function create(){
-       
-        return view('posts.create'); 
-    }
+   
 
-    public function store(){
-
-       $path= request()->file('thumbnail')->store('thumbnails');
-
-
-
-       
-        $data = request()->validate([
-            'title' => 'required|max:255',
-            'Excerpt' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'thumbnail' => 'required|image',
-            'body' => 'required',
-            'category' => ['required', Rule::exists('categories', 'id')],
-        ]);
-        
-        $data['category_id'] = $data['category'];
-        $data['user_id'] = auth()->id();
-        $data['thumbnail'] = $path ;
-     
-        unset($data['category']); 
-        // Remove 'category' from $data as it's no longer needed
-        Post::create($data);
-
-        return redirect()->route('home'); 
-        // Use the correct route name 'home'
-    }
+  
 }
 #MEZ-908031
 

@@ -7,12 +7,10 @@
     <input class="border border-gray-400 p-2 w-full" 
            name="{{ $name }}"
            id="{{ $name }}"
-           value="{{ old($name) }}"
            type="{{ $type }}" 
            placeholder="{{ $name }}" 
-           required>
 
-    @error($name)
-        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-    @enderror
+          {{ $attributes(['value'=>old($name)]) }}
+           >
+<x-forms.errorform  name={{ $name }}  />
 </div>

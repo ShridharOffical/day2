@@ -9,9 +9,11 @@
               id="{{ $name }}" 
               type="text" 
               placeholder="{{ $name }}" 
-              required>{{ old($name) }}</textarea>
+              required>{{ old($name) }}
+              {{ $attributes }} 
+           {{ $slot ?? old($name) }} </textarea>
 
-    @error($name)
-        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-    @enderror
+           @error($name)
+           <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+       @enderror
 </div>

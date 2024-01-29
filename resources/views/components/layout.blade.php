@@ -22,7 +22,21 @@
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
-                    <span class="text-xs font-bold uppercase">Welocome ,{{ auth()->user()->name }}!</span>
+
+                <x-dropdown>
+                    
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase">Welocome ,{{ auth()->user()->name }}!></button>
+                    </x-slot>
+
+                @if (auth()->user()->can('admin'))
+
+                <x-dropdown-item href="/admin/posts/create">New Post</x-dropdown-item>
+                <x-dropdown-item href="/admin/posts/dashbord">Dashbord</x-dropdown-item>
+                <x-dropdown-item href="/admin/posts/">All post</x-dropdown-item>
+     
+                @endif
+                </x-dropdown>
 
 
                     <form method="POST" action="/logout">
@@ -89,4 +103,5 @@
     <x-flash>
 
     </x-flash>
+    
 </body>
